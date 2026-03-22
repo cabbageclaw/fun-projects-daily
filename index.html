@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>REFIT//TUG</title>
+    <meta
+      name="description"
+      content="A small strategic browser game about rebuilding a broken deep-space tug before the storm arrives."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="noise"></div>
+    <div class="scanlines"></div>
+    <main class="app-shell">
+      <header class="hero card">
+        <div>
+          <p class="eyebrow">CURRENT</p>
+          <h1>REFIT THE TUG.</h1>
+          <p class="lede">
+            A salvage tug drifted out of the shipping lanes. You have six nights to make it whole,
+            decide what kind of machine it should become, and survive what is already on the way.
+          </p>
+        </div>
+        <div class="hero-actions">
+          <button id="new-run" class="primary">NEW RUN</button>
+          <button id="save-run" class="secondary">SAVE</button>
+          <button id="reset-run" class="ghost">RESET</button>
+        </div>
+      </header>
+
+      <section class="dashboard">
+        <div class="status-grid card">
+          <div class="metric big">
+            <span>Night</span>
+            <strong id="night">1 / 6</strong>
+          </div>
+          <div class="metric"><span>Hull</span><strong id="hull">0</strong></div>
+          <div class="metric"><span>Reactor</span><strong id="reactor">0</strong></div>
+          <div class="metric"><span>Nav</span><strong id="nav">0</strong></div>
+          <div class="metric"><span>Comms</span><strong id="comms">0</strong></div>
+          <div class="metric"><span>Crew</span><strong id="crew">0</strong></div>
+          <div class="metric accent"><span>Integrity</span><strong id="integrity">0</strong></div>
+        </div>
+
+        <div class="resource-grid card">
+          <div class="resource"><label>Parts</label><strong id="parts">0</strong></div>
+          <div class="resource"><label>Power</label><strong id="power">0</strong></div>
+          <div class="resource"><label>Morale</label><strong id="morale">0</strong></div>
+          <div class="resource"><label>Signal</label><strong id="signal">0</strong></div>
+          <div class="resource"><label>Heat</label><strong id="heat">0</strong></div>
+        </div>
+      </section>
+
+      <section class="playfield">
+        <div class="card mission-panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">CURRENT PROBLEM</p>
+              <h2 id="event-title">Loading...</h2>
+            </div>
+            <span id="threat-pill" class="pill">threat: low</span>
+          </div>
+          <p id="event-text" class="event-text"></p>
+          <div id="event-choices" class="choice-list"></div>
+        </div>
+
+        <aside class="sidebar">
+          <section class="card systems-panel">
+            <div class="panel-head compact">
+              <div>
+                <p class="eyebrow">NEXT</p>
+                <h2>Continue refining the hull.</h2>
+              </div>
+            </div>
+            <div id="upgrades" class="upgrade-list"></div>
+          </section>
+
+          <section class="card forecast-panel">
+            <p class="eyebrow">FORECAST</p>
+            <h2 id="forecast-title">The quiet before impact.</h2>
+            <p id="forecast-text"></p>
+            <div class="progress-wrap">
+              <div class="progress-label">
+                <span>Stormfront arrival</span>
+                <span id="storm-progress-label">0%</span>
+              </div>
+              <div class="progress-bar"><div id="storm-progress"></div></div>
+            </div>
+          </section>
+
+          <section class="card log-panel">
+            <div class="panel-head compact">
+              <div>
+                <p class="eyebrow">SHIP LOG</p>
+                <h2>What changed</h2>
+              </div>
+            </div>
+            <ul id="log" class="log-list"></ul>
+          </section>
+        </aside>
+      </section>
+
+      <section class="card endings-panel" id="ending-panel" hidden>
+        <p class="eyebrow">OUTCOME</p>
+        <h2 id="ending-title"></h2>
+        <p id="ending-text"></p>
+        <button id="play-again" class="primary">RUN IT BACK</button>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>Made for midnight ambition.</span>
+      <span>Local save only. No tracking. No build step.</span>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

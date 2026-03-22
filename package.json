@@ -1,0 +1,17 @@
+{
+  "name": "refit-the-tug",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A narrative browser strategy game about rebuilding a deep-space salvage tug before the storm arrives.",
+  "scripts": {
+    "start": "python3 -m http.server 8000"
+  },
+  "keywords": [
+    "game",
+    "browser-game",
+    "narrative",
+    "strategy",
+    "science-fiction"
+  ],
+  "license": "MIT"
+}
