@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Honest Maybe Machine</title>
+    <meta
+      name="description"
+      content="A playful but useful browser tool for turning vague ideas into sharp, testable experiments."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=Fraunces:opsz,wght@9..144,700&family=IBM+Plex+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="left-rail panel">
+        <p class="eyebrow">FUN PROJECT 03</p>
+        <h1>The Honest Maybe Machine</h1>
+        <p class="lede">
+          Feed it an idea. It pushes back. Then it gives you a tighter, more testable version with
+          useful constraints instead of startup perfume.
+        </p>
+
+        <div class="stack">
+          <label class="field">
+            <span>What are you thinking about making?</span>
+            <textarea id="idea-input" rows="5" placeholder="Example: an app that helps people stop doomscrolling by making the feed feel physically heavier the longer they stay on it."></textarea>
+          </label>
+
+          <div class="grid two">
+            <label class="field">
+              <span>Ambition level</span>
+              <input id="ambition" type="range" min="1" max="5" value="3" />
+            </label>
+            <label class="field">
+              <span>Time budget (days)</span>
+              <input id="days" type="number" min="1" max="180" value="14" />
+            </label>
+          </div>
+
+          <div class="grid two">
+            <label class="field">
+              <span>Energy mode</span>
+              <select id="energy">
+                <option value="fragile">Fragile</option>
+                <option value="steady" selected>Steady</option>
+                <option value="feral">Feral</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Desired outcome</span>
+              <select id="goal">
+                <option value="learn">Learn something real</option>
+                <option value="ship" selected>Ship something solid</option>
+                <option value="delight">Delight someone</option>
+                <option value="income">Probe for revenue</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="actions">
+            <button id="analyze" class="primary">Interrogate the idea</button>
+            <button id="randomize" class="secondary">Load a weird prompt</button>
+            <button id="copy-plan" class="ghost">Copy plan</button>
+          </div>
+        </div>
+
+        <section class="panel inset note-box">
+          <p class="eyebrow">WHAT THIS TOOL OPTIMIZES</p>
+          <ul>
+            <li>Clarity over vibes</li>
+            <li>Testable scope over fantasy-roadmap sprawl</li>
+            <li>Specific first users over “everyone”</li>
+            <li>A next experiment you can actually run</li>
+          </ul>
+        </section>
+      </section>
+
+      <section class="right-stage">
+        <section class="panel hero-output" id="hero-output">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">DIAGNOSIS</p>
+              <h2 id="verdict-title">Give it an idea and I’ll start cutting.</h2>
+            </div>
+            <div class="meter-wrap">
+              <span>Hype risk</span>
+              <div class="meter"><div id="hype-bar"></div></div>
+              <strong id="hype-label">0%</strong>
+            </div>
+          </div>
+          <p id="verdict-text" class="body-copy">
+            Good projects usually improve when they lose one layer of fake importance and gain one
+            real user constraint.
+          </p>
+        </section>
+
+        <section class="triad">
+          <article class="panel card">
+            <p class="eyebrow">TIGHTER VERSION</p>
+            <h3 id="scope-title">Nothing yet</h3>
+            <p id="scope-text" class="body-copy"></p>
+          </article>
+          <article class="panel card">
+            <p class="eyebrow">WHO IT'S FOR</p>
+            <h3 id="user-title">No one yet</h3>
+            <p id="user-text" class="body-copy"></p>
+          </article>
+          <article class="panel card">
+            <p class="eyebrow">FIRST TEST</p>
+            <h3 id="test-title">No test yet</h3>
+            <p id="test-text" class="body-copy"></p>
+          </article>
+        </section>
+
+        <section class="split">
+          <article class="panel checklist-card">
+            <p class="eyebrow">PUSHBACK</p>
+            <ul id="pushback-list" class="bullets"></ul>
+          </article>
+          <article class="panel checklist-card">
+            <p class="eyebrow">BUILD PLAN</p>
+            <ol id="plan-list" class="bullets ordered"></ol>
+          </article>
+        </section>
+
+        <section class="panel remix-card">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">REMIXES</p>
+              <h2>Three sharper directions</h2>
+            </div>
+          </div>
+          <div id="remix-grid" class="remix-grid"></div>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
