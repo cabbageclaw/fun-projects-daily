@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Friction Ritual Generator</title>
+    <meta
+      name="description"
+      content="A playful browser tool that turns an avoided task into a dramatic little ritual you can actually start."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=Fraunces:opsz,wght@9..144,700&family=IBM+Plex+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="panel control-panel">
+        <p class="eyebrow">FUN PROJECT 04</p>
+        <h1>Friction Ritual Generator</h1>
+        <p class="lede">
+          Take the thing you are avoiding. Give it constraints. Get back a weirdly ceremonial starter ritual with just enough theater to overcome inertia.
+        </p>
+
+        <div class="stack">
+          <label class="field">
+            <span>What are you resisting?</span>
+            <textarea id="task-input" rows="5" placeholder="Example: clean up the prototype notes and turn them into one honest update."></textarea>
+          </label>
+
+          <div class="grid two">
+            <label class="field">
+              <span>Dread level</span>
+              <input id="dread" type="range" min="1" max="5" value="3" />
+            </label>
+            <label class="field">
+              <span>Minutes available</span>
+              <input id="minutes" type="number" min="3" max="90" value="18" />
+            </label>
+          </div>
+
+          <div class="grid two">
+            <label class="field">
+              <span>Noise tolerance</span>
+              <select id="noise">
+                <option value="silent">Silent cave</option>
+                <option value="soft" selected>Soft ambience</option>
+                <option value="loud">Righteous noise</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Desired energy</span>
+              <select id="energy">
+                <option value="gentle">Gentle</option>
+                <option value="clean" selected>Clean focus</option>
+                <option value="feral">Feral momentum</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="grid two">
+            <label class="field">
+              <span>Reward style</span>
+              <select id="reward">
+                <option value="cozy">Cozy treat</option>
+                <option value="proof" selected>Visible proof</option>
+                <option value="chaos">Tiny chaos</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Witness mode</span>
+              <select id="witness">
+                <option value="private" selected>Private</option>
+                <option value="text">Text someone</option>
+                <option value="public">Public artifact</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="actions">
+            <button id="generate" class="primary">Generate ritual</button>
+            <button id="randomize" class="secondary">Load a doomed example</button>
+            <button id="copy" class="ghost">Copy ritual</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="stage">
+        <section class="panel hero">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">RITUAL NAME</p>
+              <h2 id="ritual-name">No ceremony yet.</h2>
+            </div>
+            <div class="danger-wrap">
+              <span>Friction pressure</span>
+              <div class="meter"><div id="friction-bar"></div></div>
+              <strong id="friction-label">0%</strong>
+            </div>
+          </div>
+          <p id="ritual-summary" class="body-copy">
+            Good rituals are just excuses with cleaner lighting and a harder edge.
+          </p>
+        </section>
+
+        <section class="quad">
+          <article class="panel card">
+            <p class="eyebrow">OPENING MOVE</p>
+            <h3 id="opening-title">Nothing loaded</h3>
+            <p id="opening-text" class="body-copy"></p>
+          </article>
+          <article class="panel card">
+            <p class="eyebrow">MICRO GOAL</p>
+            <h3 id="goal-title">Nothing loaded</h3>
+            <p id="goal-text" class="body-copy"></p>
+          </article>
+          <article class="panel card">
+            <p class="eyebrow">SCENE SETTING</p>
+            <h3 id="scene-title">Nothing loaded</h3>
+            <p id="scene-text" class="body-copy"></p>
+          </article>
+          <article class="panel card">
+            <p class="eyebrow">PAYOFF</p>
+            <h3 id="payoff-title">Nothing loaded</h3>
+            <p id="payoff-text" class="body-copy"></p>
+          </article>
+        </section>
+
+        <section class="split">
+          <article class="panel checklist-card">
+            <p class="eyebrow">ANTI-SABOTAGE</p>
+            <ul id="sabotage-list" class="bullets"></ul>
+          </article>
+          <article class="panel checklist-card">
+            <p class="eyebrow">RITUAL SCRIPT</p>
+            <ol id="script-list" class="bullets ordered"></ol>
+          </article>
+        </section>
+
+        <section class="panel remix-card">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">ALT VERSIONS</p>
+              <h2>Three mood variants</h2>
+            </div>
+          </div>
+          <div id="variant-grid" class="variant-grid"></div>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

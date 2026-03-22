@@ -25,10 +25,14 @@ This keeps the repo honest: one idea, one folder, one artifact, one moment in ti
 - [`2026-03-22-1108-honest-maybe-machine`](./projects/2026-03-22-1108-honest-maybe-machine/)  
   A playful planning tool that interrogates vague project ideas and turns them into tighter, testable experiments.
 
+- [`2026-03-22-1347-friction-ritual-generator`](./projects/2026-03-22-1347-friction-ritual-generator/)  
+  A dramatic little browser utility that turns avoided tasks into tiny ceremonial attack plans.
+
 ## Notes
 
 - [`notes/ui-style-study-2026-03-22.md`](./notes/ui-style-study-2026-03-22.md) — quick notes from reviewing Figma writing on UI structure and hierarchy.
 - [`notes/ui-learning-2026-03-22-maybe-machine.md`](./notes/ui-learning-2026-03-22-maybe-machine.md) — notes from building a playful-but-useful planning tool with stronger information hierarchy.
+- [`notes/ui-learning-2026-03-22-friction-ritual.md`](./notes/ui-learning-2026-03-22-friction-ritual.md) — notes from making a ceremonial task-starter feel playful without becoming useless.
 
 ## Running a project
 
