@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signal Poster Lab</title>
+    <meta
+      name="description"
+      content="A generative poster studio for making stylish sci-fi communication posters in different visual modes."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-theme="editorial">
+    <main class="app">
+      <section class="controls panel">
+        <div class="panel-top">
+          <p class="eyebrow">FUN PROJECT 02</p>
+          <h1>Signal Poster Lab</h1>
+          <p class="lede">
+            Generate strange transmission posters using the same content system across different UI
+            styles: editorial, brutalist, glass, terminal, and solarpunk.
+          </p>
+        </div>
+
+        <div class="field-group">
+          <label for="headline">Headline</label>
+          <input id="headline" maxlength="48" value="LISTEN TO THE QUIET MACHINE" />
+        </div>
+
+        <div class="field-group">
+          <label for="subhead">Subhead</label>
+          <textarea id="subhead" rows="3">A procedural poster experiment built from hierarchy, contrast, and a mild disrespect for empty templates.</textarea>
+        </div>
+
+        <div class="field-row">
+          <div class="field-group">
+            <label for="theme">Style mode</label>
+            <select id="theme">
+              <option value="editorial">Editorial</option>
+              <option value="brutalist">Brutalist</option>
+              <option value="glass">Glass</option>
+              <option value="terminal">Terminal</option>
+              <option value="solarpunk">Solarpunk</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label for="density">Layout density</label>
+            <select id="density">
+              <option value="airy">Airy</option>
+              <option value="balanced" selected>Balanced</option>
+              <option value="packed">Packed</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-group">
+            <label for="accent">Accent</label>
+            <input id="accent" type="color" value="#4c6fff" />
+          </div>
+          <div class="field-group">
+            <label for="seed">Seed</label>
+            <input id="seed" type="number" value="2049" min="1" max="999999" />
+          </div>
+        </div>
+
+        <details class="advanced">
+          <summary>Advanced layout knobs</summary>
+          <div class="field-row">
+            <div class="field-group">
+              <label for="orbitCount">Orbit rings</label>
+              <input id="orbitCount" type="range" min="2" max="10" value="5" />
+            </div>
+            <div class="field-group">
+              <label for="glyphCount">Glyphs</label>
+              <input id="glyphCount" type="range" min="3" max="20" value="9" />
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field-group">
+              <label for="tilt">Tilt</label>
+              <input id="tilt" type="range" min="-12" max="12" value="-4" />
+            </div>
+            <div class="field-group">
+              <label for="grain">Texture</label>
+              <input id="grain" type="range" min="0" max="100" value="22" />
+            </div>
+          </div>
+        </details>
+
+        <div class="actions">
+          <button id="randomize" class="primary">Randomize</button>
+          <button id="remix-copy" class="secondary">Remix Copy</button>
+          <button id="export-svg" class="ghost">Export SVG</button>
+        </div>
+
+        <div class="checklist panel inset">
+          <p class="eyebrow">SELF-CHECK</p>
+          <ul>
+            <li>One focal point first, support details second</li>
+            <li>Controls separated from output</li>
+            <li>Same structure, different style systems</li>
+            <li>Whitespace changes with density</li>
+            <li>Export works without dependencies</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="stage-wrap">
+        <div class="stage-toolbar panel inset">
+          <span id="style-note">Mode: Editorial · crisp hierarchy, calm spacing</span>
+          <span id="seed-note">Seed: 2049</span>
+        </div>
+        <section id="poster" class="poster" aria-label="Generated poster preview"></section>
+      </section>
+    </main>
+
+    <template id="poster-template">
+      <div class="poster-inner">
+        <div class="poster-topline">
+          <span class="badge">SIGNAL / ARCHIVE / 07</span>
+          <span class="meta">TRANSMISSION WINDOW OPEN</span>
+        </div>
+        <div class="hero-block">
+          <p class="kicker">CURRENT TRANSMISSION</p>
+          <h2 class="poster-headline"></h2>
+          <p class="poster-subhead"></p>
+        </div>
+        <div class="diagram" aria-hidden="true">
+          <div class="rings"></div>
+          <div class="glyph-layer"></div>
+          <div class="axis axis-x"></div>
+          <div class="axis axis-y"></div>
+        </div>
+        <div class="poster-footer">
+          <div>
+            <p class="footer-label">STYLE VECTOR</p>
+            <strong class="footer-style"></strong>
+          </div>
+          <div>
+            <p class="footer-label">LAYOUT DENSITY</p>
+            <strong class="footer-density"></strong>
+          </div>
+          <div>
+            <p class="footer-label">SEED</p>
+            <strong class="footer-seed"></strong>
+          </div>
+        </div>
+      </div>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>

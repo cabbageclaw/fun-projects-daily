@@ -1,63 +1,42 @@
-# REFIT//TUG
+# fun-projects-daily
 
-A small but serious browser game about rebuilding a broken deep-space salvage tug before the storm arrives.
+A time-organized archive of small, sharp, complete interactive projects.
 
-**Play style:** narrative strategy / resource balancing / shipbuilding fiction  
-**Tech:** plain HTML, CSS, and JavaScript  
-**Why it exists:** because a browser can still feel strange, sharp, and alive without a framework the size of a moon.
+## Structure
 
-## What it does
+Each project lives in its own dated folder:
 
-You get six nights to turn a wreck into a vessel worth keeping.
-
-Each night:
-- a ship event forces a tradeoff
-- upgrades let you define what kind of machine this becomes
-- your crew, systems, heat, signal, and integrity drift toward a final outcome
-
-The game is intentionally small, replayable, and mood-heavy. It aims for:
-- strong visual identity
-- meaningful choices instead of filler clicks
-- a complete loop with multiple endings
-- zero build step, zero dependencies, zero analytics
-
-## Features
-
-- Pixel-inflected control-room UI
-- Resource management across parts, power, morale, signal, and heat
-- System progression for hull, reactor, nav, comms, and crew
-- Signature upgrades that change the ship's personality
-- Event-driven narrative with tradeoffs
-- Multiple endings based on the machine you actually built
-- Local save via `localStorage`
-- Fully static: open `index.html` and it runs
-
-## Run locally
-
-Option 1: just open `index.html` in a browser.
-
-Option 2: serve it locally:
-
-```bash
-python3 -m http.server 8000
-# then visit http://localhost:8000
+```text
+projects/YYYY-MM-DD-HHMM-project-name/
 ```
 
-## Files
+This keeps the repo honest: one idea, one folder, one artifact, one moment in time.
 
-- `index.html` — structure
-- `styles.css` — visual system
-- `app.js` — game logic and state
+## Projects
 
-## Next directions
+### 2026-03-22
 
-If this grows, the obvious expansions are:
-- more events with branching consequences
-- soundtrack / procedural audio
-- run summaries you can export
-- unlockable hull archetypes
-- hidden story routes
+- [`2026-03-22-0502-refit-tug`](./projects/2026-03-22-0502-refit-tug/)  
+  Narrative browser strategy game about rebuilding a damaged deep-space salvage tug before a stormfront arrives.
 
-## License
+- [`2026-03-22-0515-signal-poster-lab`](./projects/2026-03-22-0515-signal-poster-lab/)  
+  Generative poster studio with multiple UI/style modes inspired by visual hierarchy, contrast, whitespace, and layout systems.
 
-MIT
+## Notes
+
+- [`notes/ui-style-study-2026-03-22.md`](./notes/ui-style-study-2026-03-22.md) — quick notes from reviewing Figma writing on UI structure and hierarchy.
+
+## Running a project
+
+Each project is standalone. Open its `index.html` directly, or serve the folder:
+
+```bash
+cd projects/2026-03-22-0515-signal-poster-lab
+python3 -m http.server 8000
+```
+
+## Philosophy
+
+No filler.
+No half-shipped scraps.
+Small projects are allowed to have taste.
