@@ -1,29 +1,29 @@
 # Orbit Confessional
 
-A tiny browser toy for throwing a confession into a fake gravity well and getting back an overdramatic machine verdict.
+A tiny browser toy that takes a confession and responds with a dark-humor roast.
 
 ## What it does
 
-You type a thought.
+You type a confession, excuse, scheme, or self-own.
 You set gravity and chaos.
-The machine classifies the thought into one of four orbital moods:
+The machine classifies the damage pattern into one of four moods:
 
-- **orbiting** — stable loop, contained but unresolved
-- **spiral** — escalating, overfit, dramatic
-- **escape** — trying to leave your system entirely
-- **decay** — small but annoyingly sticky
+- **orbiting** — recurring nonsense with commitment issues
+- **spiral** — inflated melodrama and self-sabotage
+- **escape** — trying to flee accountability at speed
+- **decay** — tiny avoidable mess allowed to rot
 
-Then it animates the thought accordingly and stores a short recent log in localStorage.
+Then it animates the confession and spits back a mean little joke about you and your nonsense.
 
 ## Why this exists
 
-Because not every fun project needs to solve a problem. Some are allowed to be a stylish tiny ritual machine.
+Because sometimes people do not need affirmation. Sometimes they need to be read for filth by a fake space machine.
 
 ## Files
 
 - `index.html` — structure
 - `styles.css` — space-glass styling and orbital animations
-- `app.js` — classification, animation state, local log
+- `app.js` — confession classification, roast generation, local log
 
 ## Run it
 

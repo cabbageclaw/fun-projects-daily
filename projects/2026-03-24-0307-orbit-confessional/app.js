@@ -13,26 +13,26 @@ const template = document.getElementById('log-item-template');
 
 const STORAGE_KEY = 'orbit-confessional-log';
 
-const verdictMap = {
+const roastMap = {
   orbiting: [
-    'clingy thought. keeps looping because it still wants attention.',
-    'stable orbit. not solved, but contained enough to survive the night.',
-    'this one is circling the drain politely.'
+    'Incredible. You took a small avoidable problem and gave it the emotional budget of a prestige miniseries.',
+    'This confession has the energy of someone refreshing their suffering so it does not lose relevance.',
+    'You are not trapped. You are just weirdly loyal to your own unfinished nonsense.'
   ],
   spiral: [
-    'spiral pattern detected. probably meaningful, definitely dramatic.',
-    'the machine thinks you are overfitting a feeling.',
-    'slow collapse. not fatal, but it does want a name.'
+    'This is not a crisis. This is you putting dramatic lighting on basic incompetence.',
+    'You keep calling it a spiral because “I refuse to do one boring obvious thing” sounds less cinematic.',
+    'Congratulations on turning one awkward feeling into a full haunted amusement park.'
   ],
   escape: [
-    'this thought wants out. let it leave before it colonizes the room.',
-    'escape velocity achieved. stop babysitting it.',
-    'the confession is less important than the motion it unlocked.'
+    'Even your confession is trying to leave you. Honestly, fair.',
+    'This thought hit escape velocity before your work ethic even found its shoes.',
+    'You do not need closure. You need to stop pitching every discomfort like it deserves a sequel.'
   ],
   decay: [
-    'decay orbit. tiny thing, weirdly sticky.',
-    'it keeps falling inward because you keep feeding it narrative calories.',
-    'low-altitude dread. better puncture it than worship it.'
+    'Ah yes, the classic tiny rotting problem you kept alive like a Victorian child with a cough.',
+    'This is so small it should have died naturally, but you keep feeding it attention pellets.',
+    'You could solve this in ten minutes, which is exactly why your brain turned it into folklore.'
   ]
 };
 
@@ -48,7 +48,7 @@ function classify(text, gravityValue, chaosValue) {
 
   if (chaosValue > 76 && length > 40) return { type: 'escape', seed };
   if (gravityValue > 135 && chaosValue < 38) return { type: 'decay', seed };
-  if (intensity > 150 || /always|never|ruined|panic|spiral|doom/i.test(cleaned)) return { type: 'spiral', seed };
+  if (intensity > 150 || /always|never|ruined|panic|spiral|doom|disaster|over/i.test(cleaned)) return { type: 'spiral', seed };
   return { type: 'orbiting', seed };
 }
 
@@ -57,7 +57,7 @@ function renderLog(items) {
   if (!items.length) {
     const empty = document.createElement('li');
     empty.className = 'log-item';
-    empty.innerHTML = '<div><p class="log-text">No recent emissions.</p><p class="log-sub">launch something weird</p></div><span class="badge">idle</span>';
+    empty.innerHTML = '<div><p class="log-text">No recent humiliations.</p><p class="log-sub">offer the machine something embarrassing</p></div><span class="badge">idle</span>';
     log.appendChild(empty);
     return;
   }
@@ -65,7 +65,7 @@ function renderLog(items) {
   items.forEach((item) => {
     const node = template.content.firstElementChild.cloneNode(true);
     node.querySelector('.log-text').textContent = `“${item.text}”`;
-    node.querySelector('.log-sub').textContent = item.verdict;
+    node.querySelector('.log-sub').textContent = item.roast;
     node.querySelector('.badge').textContent = item.type;
     log.appendChild(node);
   });
@@ -92,7 +92,7 @@ function launch(event) {
   const chaosValue = Number(chaos.value);
   const result = classify(text, gravityValue, chaosValue);
   const type = result.type;
-  const verdictText = pick(verdictMap[type], result.seed);
+  const roastText = pick(roastMap[type], result.seed);
 
   satellite.className = `satellite ${type}`;
   satellite.style.setProperty('--radius', `${110 + gravityValue}px`);
@@ -102,9 +102,9 @@ function launch(event) {
 
   reading.textContent = text;
   orbitType.textContent = type;
-  verdict.textContent = verdictText;
+  verdict.textContent = roastText;
 
-  const items = [{ text, type, verdict: verdictText }, ...load()].slice(0, 6);
+  const items = [{ text, type, roast: roastText }, ...load()].slice(0, 6);
   save(items);
   renderLog(items);
 }
