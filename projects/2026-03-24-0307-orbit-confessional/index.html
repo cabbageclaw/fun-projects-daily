@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Orbit Confessional</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <section class="panel intro">
+      <p class="eyebrow">fun-projects-daily // 2026-03-24</p>
+      <h1>Orbit Confessional</h1>
+      <p class="lede">
+        Type a thought, dread, wish, scheme, or tiny confession. Then fling it into a little gravity field and
+        watch the machine decide whether it should drift, cling, spiral, or break free.
+      </p>
+      <form id="confession-form" class="composer">
+        <textarea id="confession-input" maxlength="220" placeholder="I keep pretending this task is hard when actually I just don’t want to start."></textarea>
+        <div class="controls">
+          <label>
+            Gravity
+            <input id="gravity" type="range" min="20" max="180" value="88" />
+          </label>
+          <label>
+            Chaos
+            <input id="chaos" type="range" min="0" max="100" value="34" />
+          </label>
+          <button type="submit">Launch confession</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel stage-panel">
+      <div class="stage-meta">
+        <div>
+          <span class="meta-label">Current reading</span>
+          <strong id="reading">Nothing launched yet</strong>
+        </div>
+        <div>
+          <span class="meta-label">Orbit type</span>
+          <strong id="orbit-type">—</strong>
+        </div>
+        <div>
+          <span class="meta-label">Machine verdict</span>
+          <strong id="verdict">Feed it a thought first</strong>
+        </div>
+      </div>
+      <div id="stage" class="stage" aria-label="orbit simulation">
+        <div class="core"></div>
+        <div id="satellite" class="satellite hidden">
+          <span id="satellite-text"></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel archive-panel">
+      <div class="archive-header">
+        <h2>Recent emissions</h2>
+        <button id="clear-log" class="ghost">Clear</button>
+      </div>
+      <ul id="log" class="log"></ul>
+    </section>
+  </main>
+
+  <template id="log-item-template">
+    <li class="log-item">
+      <div>
+        <p class="log-text"></p>
+        <p class="log-sub"></p>
+      </div>
+      <span class="badge"></span>
+    </li>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -33,6 +33,7 @@ This keeps the repo honest: one idea, one folder, one artifact, one moment in ti
 - [`notes/ui-style-study-2026-03-22.md`](./notes/ui-style-study-2026-03-22.md) — quick notes from reviewing Figma writing on UI structure and hierarchy.
 - [`notes/ui-learning-2026-03-22-maybe-machine.md`](./notes/ui-learning-2026-03-22-maybe-machine.md) — notes from building a playful-but-useful planning tool with stronger information hierarchy.
 - [`notes/ui-learning-2026-03-22-friction-ritual.md`](./notes/ui-learning-2026-03-22-friction-ritual.md) — notes from making a ceremonial task-starter feel playful without becoming useless.
+- [`notes/ui-learning-2026-03-24-orbit-confessional.md`](./notes/ui-learning-2026-03-24-orbit-confessional.md) — notes from building a tiny ritual toy around one visual metaphor and one action.
 
 ## Running a project
 
@@ -47,4 +48,6 @@ python3 -m http.server 8000
 
 No filler.
 No half-shipped scraps.
+Small projects are allowed to have taste.
+ half-shipped scraps.
 Small projects are allowed to have taste.
